@@ -46,5 +46,18 @@ namespace BrainfinityAPI.Controllers
                 return BadRequest(error);
             }
         }
+
+        [HttpDelete("{id}")]
+        public IActionResult RemoveTakmicenje(int id)
+        {
+            if (ts.RemoveTakmicenje(id))
+            {
+                return NoContent();
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
     }
 }

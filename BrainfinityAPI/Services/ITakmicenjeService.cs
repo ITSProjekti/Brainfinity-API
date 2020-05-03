@@ -13,5 +13,7 @@ namespace BrainfinityAPI.Services
         IEnumerable<Takmicenje> GetTakmicenjes();
 
         bool PostTakmicenje(Takmicenje takmicenje);
+
+        bool RemoveTakmicenje(int id);
     }
 }

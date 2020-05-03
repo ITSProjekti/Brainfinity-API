@@ -40,5 +40,20 @@ namespace BrainfinityAPI.Services
                 return false;
             }
         }
+
+        public bool RemoveTakmicenje(int id)
+        {
+            var takmicenjeZaBrisanje = uow.TakmicenjeRepository.GetTakmicenje(id);
+            if (takmicenjeZaBrisanje == null)
+            {
+                //promeniti da baca custom exception koji ce se hvatati u kontroleru
+                return false;
+            }
+
+            uow.TakmicenjeRepository.RemoveTakmicenje(id);
+            uow.Save();
+
+            return true;
+        }
     }
 }

@@ -4,14 +4,16 @@ using BrainfinityAPI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BrainfinityAPI.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200412132606_DodajSlikuTakmicenju")]
+    partial class DodajSlikuTakmicenju
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -32,8 +34,6 @@ namespace BrainfinityAPI.Data.Migrations
                     b.Property<string>("Naziv");
 
                     b.Property<string>("Slika");
-
-                    b.Property<int>("Status");
 
                     b.HasKey("Id");
 

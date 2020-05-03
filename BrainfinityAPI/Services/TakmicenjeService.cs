@@ -26,10 +26,19 @@ namespace BrainfinityAPI.Services
             return uow.TakmicenjeRepository.GetTakmicenjes();
         }
 
-        public void PostTakmicenje(Takmicenje takmicenje)
+        public bool PostTakmicenje(Takmicenje takmicenje)
         {
-            uow.TakmicenjeRepository.PostTakmicenje(takmicenje);
-            uow.Save();
+            if (takmicenje.DatumOd.CompareTo(DateTime.Now) > 0 && takmicenje.DatumOd.CompareTo(takmicenje.DatumDo) < 0)
+            {
+                uow.TakmicenjeRepository.PostTakmicenje(takmicenje);
+                uow.Save();
+
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

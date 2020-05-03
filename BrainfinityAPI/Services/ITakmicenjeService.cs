@@ -12,6 +12,6 @@ namespace BrainfinityAPI.Services
 
         IEnumerable<Takmicenje> GetTakmicenjes();
 
-        void PostTakmicenje(Takmicenje takmicenje);
+        bool PostTakmicenje(Takmicenje takmicenje);
     }
 }

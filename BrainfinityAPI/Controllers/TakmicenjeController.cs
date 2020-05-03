@@ -36,8 +36,15 @@ namespace BrainfinityAPI.Controllers
         [HttpPost]
         public ObjectResult Post([FromBody]Takmicenje takmicenje)
         {
-            ts.PostTakmicenje(takmicenje);
-            return Ok(takmicenje);
+            if (ts.PostTakmicenje(takmicenje))
+            {
+                return Ok(takmicenje);
+            }
+            else
+            {
+                var error = "Greska, bad request";
+                return BadRequest(error);
+            }
         }
     }
 }

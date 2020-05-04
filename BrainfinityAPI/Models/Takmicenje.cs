@@ -15,11 +15,22 @@ namespace BrainfinityAPI.Models
 
     public class Takmicenje
     {
+        [Key]
         public int Id { get; set; }
+
+        [Required]
+        [MaxLength(255)]
         public string Naziv { get; set; }
+
+        [Required]
         public DateTime DatumOd { get; set; }
+
+        [Required]
         public DateTime DatumDo { get; set; }
+
         public string Slika { get; set; }
+
+        [Required]
         public Status Status { get; set; }
     }
 }

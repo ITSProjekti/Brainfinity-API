@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,17 +16,17 @@ namespace BrainfinityAPI.Services
             this.uow = uow;
         }
 
-        public Takmicenje GetTakmicenje(int id)
+        public TakmicenjeDto GetTakmicenje(int id)
         {
             return uow.TakmicenjeRepository.GetTakmicenje(id);
         }
 
-        public IEnumerable<Takmicenje> GetTakmicenjes()
+        public IEnumerable<TakmicenjeDto> GetTakmicenjes()
         {
             return uow.TakmicenjeRepository.GetTakmicenjes();
         }
 
-        public bool PostTakmicenje(Takmicenje takmicenje)
+        public bool PostTakmicenje(TakmicenjeDto takmicenje)
         {
             if (takmicenje.DatumOd.CompareTo(DateTime.Now) > 0 && takmicenje.DatumOd.CompareTo(takmicenje.DatumDo) < 0)
             {

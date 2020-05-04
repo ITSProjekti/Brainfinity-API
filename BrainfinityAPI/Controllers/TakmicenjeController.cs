@@ -4,8 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using BrainfinityAPI.Models;
 using BrainfinityAPI.Services;
+using BrainfinityAPI.Dtos;
 
 namespace BrainfinityAPI.Controllers
 {
@@ -21,9 +21,14 @@ namespace BrainfinityAPI.Controllers
         }
 
         [HttpGet("{id}")]
-        public ObjectResult GetTakmicenje(int id)
+        public IActionResult GetTakmicenje(int id)
         {
-            Takmicenje takmicenje = ts.GetTakmicenje(id);
+            TakmicenjeDto takmicenje = ts.GetTakmicenje(id);
+
+            if (takmicenje == null)
+            {
+                return NotFound();
+            }
             return Ok(takmicenje);
         }
 
@@ -34,7 +39,7 @@ namespace BrainfinityAPI.Controllers
         }
 
         [HttpPost]
-        public ObjectResult Post([FromBody]Takmicenje takmicenje)
+        public ObjectResult Post([FromBody]TakmicenjeDto takmicenje)
         {
             if (ts.PostTakmicenje(takmicenje))
             {

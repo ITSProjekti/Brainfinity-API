@@ -15,6 +15,7 @@ using Microsoft.Extensions.DependencyInjection;
 using BrainfinityAPI.DataAccess;
 using BrainfinityAPI.DataAccess.Repository;
 using BrainfinityAPI.Services;
+using AutoMapper;
 
 namespace BrainfinityAPI
 {
@@ -42,6 +43,8 @@ namespace BrainfinityAPI
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<IdentityUser>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
+            services.AddAutoMapper(typeof(Startup));
 
             services.AddTransient<ITakmicenjeService, TakmicenjeService>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();

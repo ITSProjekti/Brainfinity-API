@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BrainfinityAPI.Dtos
 {
-    public class TakmicenjeDto
+    public class GetTakmicenjeDto
     {
         public int Id { get; set; }
 

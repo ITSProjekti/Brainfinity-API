@@ -20,21 +20,21 @@ namespace BrainfinityAPI.Services
             _mapper = mapper;
         }
 
-        public TakmicenjeDto GetTakmicenje(int id)
+        public GetTakmicenjeDto GetTakmicenje(int id)
         {
             var takmicenjeIzBaze = uow.TakmicenjeRepository.GetTakmicenje(id);
-            return _mapper.Map<TakmicenjeDto>(takmicenjeIzBaze);
+            return _mapper.Map<GetTakmicenjeDto>(takmicenjeIzBaze);
             //return uow.TakmicenjeRepository.GetTakmicenje(id);
         }
 
-        public IEnumerable<TakmicenjeDto> GetTakmicenjes()
+        public IEnumerable<GetTakmicenjeDto> GetTakmicenjes()
         {
             var svaTakmicenjaIzBaze = uow.TakmicenjeRepository.GetTakmicenjes();
-            return _mapper.Map<IEnumerable<TakmicenjeDto>>(svaTakmicenjaIzBaze);
+            return _mapper.Map<IEnumerable<GetTakmicenjeDto>>(svaTakmicenjaIzBaze);
             //return uow.TakmicenjeRepository.GetTakmicenjes();
         }
 
-        public bool PostTakmicenje(TakmicenjeDto takmicenje)
+        public bool PostTakmicenje(GetTakmicenjeDto takmicenje)
         {
             if (takmicenje.DatumOd.CompareTo(DateTime.Now) > 0 && takmicenje.DatumOd.CompareTo(takmicenje.DatumDo) < 0)
             {
@@ -60,6 +60,28 @@ namespace BrainfinityAPI.Services
             }
 
             uow.TakmicenjeRepository.RemoveTakmicenje(id);
+            uow.Save();
+
+            return true;
+        }
+
+        public bool PutUpdateTakmicenje(UpdateTakmicenjeDto takmicenje, int id)
+        {
+            var takmicenjeIzBaze = uow.TakmicenjeRepository.GetTakmicenje(id);
+            if (takmicenjeIzBaze == null)
+            {
+                //takodje promeniti na custom exception
+                return false;
+            }
+
+            if (takmicenje == null)
+            {
+                //isto exception
+                return false;
+            }
+
+            var takmicenjeUpdate = _mapper.Map(takmicenje, takmicenjeIzBaze);
+            uow.TakmicenjeRepository.UpdateTakmicenje(takmicenjeUpdate);
             uow.Save();
 
             return true;

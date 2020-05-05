@@ -23,7 +23,7 @@ namespace BrainfinityAPI.Controllers
         [HttpGet("{id}")]
         public IActionResult GetTakmicenje(int id)
         {
-            TakmicenjeDto takmicenje = ts.GetTakmicenje(id);
+            GetTakmicenjeDto takmicenje = ts.GetTakmicenje(id);
 
             if (takmicenje == null)
             {
@@ -39,7 +39,7 @@ namespace BrainfinityAPI.Controllers
         }
 
         [HttpPost]
-        public ObjectResult Post([FromBody]TakmicenjeDto takmicenje)
+        public ObjectResult Post([FromBody]GetTakmicenjeDto takmicenje)
         {
             if (ts.PostTakmicenje(takmicenje))
             {
@@ -56,6 +56,19 @@ namespace BrainfinityAPI.Controllers
         public IActionResult RemoveTakmicenje(int id)
         {
             if (ts.RemoveTakmicenje(id))
+            {
+                return NoContent();
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult PutUpdateTakmicenje([FromBody]UpdateTakmicenjeDto takmicenje, int id)
+        {
+            if (ts.PutUpdateTakmicenje(takmicenje, id))
             {
                 return NoContent();
             }

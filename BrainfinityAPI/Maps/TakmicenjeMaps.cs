@@ -12,8 +12,9 @@ namespace BrainfinityAPI.Maps
     {
         public TakmicenjeMaps()
         {
-            CreateMap<Takmicenje, TakmicenjeDto>();
-            CreateMap<TakmicenjeDto, Takmicenje>();
+            CreateMap<Takmicenje, GetTakmicenjeDto>();
+            CreateMap<GetTakmicenjeDto, Takmicenje>();
+            CreateMap<UpdateTakmicenjeDto, Takmicenje>();
         }
     }
 }

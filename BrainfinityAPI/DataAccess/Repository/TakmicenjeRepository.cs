@@ -44,5 +44,9 @@ namespace BrainfinityAPI.DataAccess.Repository
         {
             _context.Takmicenjes.Remove(GetTakmicenje(id));
         }
+
+        public void UpdateTakmicenje(Takmicenje takmicenje)
+        {
+        }
     }
 }

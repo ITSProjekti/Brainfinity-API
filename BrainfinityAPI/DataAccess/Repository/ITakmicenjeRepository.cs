@@ -16,6 +16,8 @@ namespace BrainfinityAPI.DataAccess.Repository
 
         void PostTakmicenje(Takmicenje takmicenje);
 
+        void UpdateTakmicenje(Takmicenje takmicenje);
+
         //void PutTakmicenje(int id);
 
         //void PatchTakmicenje(int id);

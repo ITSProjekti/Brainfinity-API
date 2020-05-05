@@ -3,18 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BrainfinityAPI.Dtos;
-using BrainfinityAPI.Models;
 
 namespace BrainfinityAPI.Services
 {
     public interface ITakmicenjeService
     {
-        TakmicenjeDto GetTakmicenje(int id);
+        GetTakmicenjeDto GetTakmicenje(int id);
 
-        IEnumerable<TakmicenjeDto> GetTakmicenjes();
+        IEnumerable<GetTakmicenjeDto> GetTakmicenjes();
 
-        bool PostTakmicenje(TakmicenjeDto takmicenje);
+        bool PostTakmicenje(GetTakmicenjeDto takmicenje);
 
         bool RemoveTakmicenje(int id);
+
+        bool PutUpdateTakmicenje(UpdateTakmicenjeDto takmicenje, int id);
     }
 }

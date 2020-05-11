@@ -30,6 +30,20 @@ namespace BrainfinityAPI.DataAccess
             }
         }
 
+        private IGrupaZadatakaRepository _grupaZadataka;
+
+        public IGrupaZadatakaRepository GrupaZadatakaRepository
+        {
+            get
+            {
+                if (_grupaZadataka == null)
+                {
+                    _grupaZadataka = new GrupaZadatakaRepository(_context);
+                }
+                return _grupaZadataka;
+            }
+        }
+
         public int Save()
         {
             return _context.SaveChanges();

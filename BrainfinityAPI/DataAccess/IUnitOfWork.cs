@@ -9,6 +9,7 @@ namespace BrainfinityAPI.DataAccess
     public interface IUnitOfWork
     {
         ITakmicenjeRepository TakmicenjeRepository { get; }
+        IGrupaZadatakaRepository GrupaZadatakaRepository { get; }
 
         int Save();
     }

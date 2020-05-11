@@ -47,6 +47,7 @@ namespace BrainfinityAPI
             services.AddAutoMapper(typeof(Startup));
 
             services.AddTransient<ITakmicenjeService, TakmicenjeService>();
+            services.AddTransient<IGrupaZadatakaService, GrupaZadatakaService>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             services.AddCors();

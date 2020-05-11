@@ -15,5 +15,7 @@ namespace BrainfinityAPI.Data
         }
 
         public DbSet<Takmicenje> Takmicenjes { get; set; }
+
+        public DbSet<GrupaZadataka> GrupaZadatakas { get; set; }
     }
 }

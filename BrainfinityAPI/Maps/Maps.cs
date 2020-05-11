@@ -8,13 +8,17 @@ using BrainfinityAPI.Models;
 
 namespace BrainfinityAPI.Maps
 {
-    public class TakmicenjeMaps : Profile
+    public class Maps : Profile
     {
-        public TakmicenjeMaps()
+        public Maps()
         {
             CreateMap<Takmicenje, GetTakmicenjeDto>();
             CreateMap<GetTakmicenjeDto, Takmicenje>();
             CreateMap<UpdateTakmicenjeDto, Takmicenje>();
+
+            CreateMap<GrupaZadataka, GetGrupaZadatakaDto>();
+            CreateMap<GetGrupaZadatakaDto, GrupaZadataka>();
+            CreateMap<UpdateGrupaZadatakaDto, GrupaZadataka>();
         }
     }
 }

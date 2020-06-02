@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using BrainfinityAPI.Data;
 using BrainfinityAPI.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace BrainfinityAPI.DataAccess.Repository
 {
@@ -23,7 +24,7 @@ namespace BrainfinityAPI.DataAccess.Repository
 
         public IEnumerable<GrupaZadataka> GetSveGrupeZadataka(int takmicenjeId)
         {
-            return _context.GrupaZadatakas.Where(g => g.TakmicenjeId == takmicenjeId).ToList();
+            return _context.GrupaZadatakas.Where(g => g.Takmicenje.Id == takmicenjeId).ToList();
         }
 
         public void NovaGrupaZadataka(GrupaZadataka grupaZadataka)

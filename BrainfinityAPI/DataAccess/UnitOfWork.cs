@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -41,6 +41,20 @@ namespace BrainfinityAPI.DataAccess
                     _grupaZadataka = new GrupaZadatakaRepository(_context);
                 }
                 return _grupaZadataka;
+            }
+        }
+
+        private INivoSkoleRepository _nivoSkole;
+
+        public INivoSkoleRepository NivoSkoleRepository
+        {
+            get
+            {
+                if (_nivoSkole == null)
+                {
+                    _nivoSkole = new NivoSkoleRepository(_context);
+                }
+                return _nivoSkole;
             }
         }
 

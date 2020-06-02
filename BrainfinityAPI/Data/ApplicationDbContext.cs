@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -17,5 +17,7 @@ namespace BrainfinityAPI.Data
         public DbSet<Takmicenje> Takmicenjes { get; set; }
 
         public DbSet<GrupaZadataka> GrupaZadatakas { get; set; }
+
+        public DbSet<Status> Statuses { get; set; }
     }
 }

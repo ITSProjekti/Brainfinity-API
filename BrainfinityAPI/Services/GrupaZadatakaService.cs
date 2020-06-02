@@ -66,5 +66,26 @@ namespace BrainfinityAPI.Services
 
             return true;
         }
+
+        public bool EditGrupaZadataka(PostGrupaZadatakaDto grupaZadataka, int grupaId)
+        {
+            var grupaIzBaze = _uow.GrupaZadatakaRepository.GetGrupaZadataka(grupaId);
+
+            if (grupaIzBaze == null)
+            {
+                return false;
+            }
+
+            if (grupaZadataka == null)
+            {
+                return false;
+            }
+
+            var grupa = _mapper.Map(grupaZadataka, grupaIzBaze);
+            _uow.GrupaZadatakaRepository.EditGrupaZadataka(grupa);
+            _uow.Save();
+
+            return true;
+        }
     }
 }

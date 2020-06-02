@@ -13,5 +13,7 @@ namespace BrainfinityAPI.DataAccess.Repository
         GrupaZadataka GetGrupaZadataka(int grupaId);
 
         void NovaGrupaZadataka(GrupaZadataka grupaZadataka);
+
+        void EditGrupaZadataka(GrupaZadataka grupaZadataka);
     }
 }

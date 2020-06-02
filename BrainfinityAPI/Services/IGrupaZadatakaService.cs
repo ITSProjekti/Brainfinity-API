@@ -13,5 +13,7 @@ namespace BrainfinityAPI.Services
         GetSveGrupeZadatakaDto GetSveGrupeZadataka(int takmicenjeId);
 
         bool NovaGrupaZadataka(PostGrupaZadatakaDto grupaZadataka);
+
+        bool EditGrupaZadataka(PostGrupaZadatakaDto grupaZadataka, int grupaId);
     }
 }

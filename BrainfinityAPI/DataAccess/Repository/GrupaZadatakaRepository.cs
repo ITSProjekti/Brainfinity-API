@@ -17,6 +17,10 @@ namespace BrainfinityAPI.DataAccess.Repository
             _context = context;
         }
 
+        public void EditGrupaZadataka(GrupaZadataka grupaZadataka)
+        {
+        }
+
         public GrupaZadataka GetGrupaZadataka(int grupaId)
         {
             return _context.GrupaZadatakas.SingleOrDefault(g => g.Id == grupaId);

@@ -51,5 +51,18 @@ namespace BrainfinityAPI.Controllers
                 return BadRequest();
             }
         }
+
+        [HttpPut("{id}")]
+        public IActionResult EditGrupaZadataka([FromBody]PostGrupaZadatakaDto grupaZadataka, int id)
+        {
+            if (_gzs.EditGrupaZadataka(grupaZadataka, id))
+            {
+                return NoContent();
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
     }
 }

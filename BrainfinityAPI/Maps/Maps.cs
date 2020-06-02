@@ -14,7 +14,7 @@ namespace BrainfinityAPI.Maps
         {
             CreateMap<Takmicenje, GetTakmicenjeDto>();
             CreateMap<GetTakmicenjeDto, Takmicenje>();
-            CreateMap<PostTakmicenjeDto, Takmicenje>();
+            CreateMap<Takmicenje, PostTakmicenjeDto>();
             CreateMap<PostTakmicenjeDto, Takmicenje>();
 
             CreateMap<GrupaZadataka, GetGrupaZadatakaDto>();

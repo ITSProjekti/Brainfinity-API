@@ -14,11 +14,12 @@ namespace BrainfinityAPI.Maps
         {
             CreateMap<Takmicenje, GetTakmicenjeDto>();
             CreateMap<GetTakmicenjeDto, Takmicenje>();
-            CreateMap<UpdateTakmicenjeDto, Takmicenje>();
+            CreateMap<PostTakmicenjeDto, Takmicenje>();
+            CreateMap<PostTakmicenjeDto, Takmicenje>();
 
             CreateMap<GrupaZadataka, GetGrupaZadatakaDto>();
             CreateMap<GetGrupaZadatakaDto, GrupaZadataka>();
-            CreateMap<UpdateGrupaZadatakaDto, GrupaZadataka>();
+            CreateMap<PostGrupaZadatakaDto, GrupaZadataka>();
         }
     }
 }

@@ -10,8 +10,8 @@ namespace BrainfinityAPI.Services
     {
         GetGrupaZadatakaDto GetGrupaZadataka(int grupaId);
 
-        IEnumerable<GetGrupaZadatakaDto> GetSveGrupeZadataka(int takmicenjeId);
+        GetSveGrupeZadatakaDto GetSveGrupeZadataka(int takmicenjeId);
 
-        bool NovaGrupaZadataka(UpdateGrupaZadatakaDto grupaZadataka);
+        bool NovaGrupaZadataka(PostGrupaZadatakaDto grupaZadataka);
     }
 }

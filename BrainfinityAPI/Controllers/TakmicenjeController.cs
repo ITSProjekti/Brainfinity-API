@@ -39,7 +39,7 @@ namespace BrainfinityAPI.Controllers
         }
 
         [HttpPost]
-        public ObjectResult Post([FromBody]GetTakmicenjeDto takmicenje)
+        public ObjectResult Post([FromBody]PostTakmicenjeDto takmicenje)
         {
             if (ts.PostTakmicenje(takmicenje))
             {
@@ -66,7 +66,7 @@ namespace BrainfinityAPI.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult PutUpdateTakmicenje([FromBody]UpdateTakmicenjeDto takmicenje, int id)
+        public IActionResult PutUpdateTakmicenje([FromBody]PostTakmicenjeDto takmicenje, int id)
         {
             if (ts.PutUpdateTakmicenje(takmicenje, id))
             {

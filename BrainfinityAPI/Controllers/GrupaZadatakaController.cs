@@ -40,7 +40,7 @@ namespace BrainfinityAPI.Controllers
         }
 
         [HttpPost]
-        public IActionResult NovaGrupaZadataka([FromBody]UpdateGrupaZadatakaDto grupaZadataka)
+        public IActionResult NovaGrupaZadataka([FromBody]PostGrupaZadatakaDto grupaZadataka)
         {
             if (_gzs.NovaGrupaZadataka(grupaZadataka))
             {

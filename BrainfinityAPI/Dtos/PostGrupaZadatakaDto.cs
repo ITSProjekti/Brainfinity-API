@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace BrainfinityAPI.Dtos
 {
-    public class UpdateGrupaZadatakaDto
+    public class PostGrupaZadatakaDto
     {
-        public string Razred { get; set; }
-        public string NivoSkole { get; set; }
+        public int RazredId { get; set; }
 
         public int TakmicenjeId { get; set; }
     }

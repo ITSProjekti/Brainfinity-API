@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using BrainfinityAPI.Models;
 
 namespace BrainfinityAPI.Dtos
 {
@@ -21,7 +22,6 @@ namespace BrainfinityAPI.Dtos
 
         public string Slika { get; set; }
 
-        [Required]
-        public int Status { get; set; }
+        public int StatusId { get; set; }
     }
 }

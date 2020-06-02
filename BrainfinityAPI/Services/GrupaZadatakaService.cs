@@ -27,13 +27,38 @@ namespace BrainfinityAPI.Services
             return _mapper.Map<GetGrupaZadatakaDto>(grupaIzBaze);
         }
 
-        public IEnumerable<GetGrupaZadatakaDto> GetSveGrupeZadataka(int takmicenjeId)
+        public GetSveGrupeZadatakaDto GetSveGrupeZadataka(int takmicenjeId)
         {
             var sveGrupeIzBaze = _uow.GrupaZadatakaRepository.GetSveGrupeZadataka(takmicenjeId);
-            return _mapper.Map<IEnumerable<GetGrupaZadatakaDto>>(sveGrupeIzBaze);
+
+            IEnumerable<GetGrupaZadatakaDto> sveGrupe = _mapper.Map<IEnumerable<GetGrupaZadatakaDto>>(sveGrupeIzBaze);
+            IEnumerable<Razred> razredi = _uow.RazredRepository.GetAllRazreds();
+
+            var liste = new GetSveGrupeZadatakaDto
+            {
+                SveGrupe = sveGrupe,
+                Razredi = PreostaliRazredi(sveGrupe, razredi),
+                NivoiSkole = _uow.NivoSkoleRepository.GetAllNivoSkole(),
+                NazivTakmicenja = _uow.TakmicenjeRepository.GetTakmicenje(takmicenjeId).Naziv,
+                TakmicenjeId = takmicenjeId
+            };
+
+            return liste;
         }
 
-        public bool NovaGrupaZadataka(UpdateGrupaZadatakaDto grupaZadataka)
+        public IEnumerable<Razred> PreostaliRazredi(IEnumerable<GetGrupaZadatakaDto> sveGrupe, IEnumerable<Razred> sviRazredi)
+        {
+            var razredi = sviRazredi.ToList();
+
+            foreach (var grupa in sveGrupe)
+            {
+                razredi.Remove(razredi.SingleOrDefault(r => r.Id == grupa.RazredId));
+            }
+
+            return razredi;
+        }
+
+        public bool NovaGrupaZadataka(PostGrupaZadatakaDto grupaZadataka)
         {
             var grupaZaUnos = _mapper.Map<GrupaZadataka>(grupaZadataka);
             _uow.GrupaZadatakaRepository.NovaGrupaZadataka(grupaZaUnos);

@@ -34,11 +34,12 @@ namespace BrainfinityAPI.Services
             //return uow.TakmicenjeRepository.GetTakmicenjes();
         }
 
-        public bool PostTakmicenje(GetTakmicenjeDto takmicenje)
+        public bool PostTakmicenje(PostTakmicenjeDto takmicenje)
         {
             if (takmicenje.DatumOd.CompareTo(DateTime.Now) > 0 && takmicenje.DatumOd.CompareTo(takmicenje.DatumDo) < 0)
             {
                 var takmicenjeZaUnos = _mapper.Map<Takmicenje>(takmicenje);
+                takmicenjeZaUnos.StatusId = 3;
                 uow.TakmicenjeRepository.PostTakmicenje(takmicenjeZaUnos);
                 uow.Save();
 
@@ -65,7 +66,7 @@ namespace BrainfinityAPI.Services
             return true;
         }
 
-        public bool PutUpdateTakmicenje(UpdateTakmicenjeDto takmicenje, int id)
+        public bool PutUpdateTakmicenje(PostTakmicenjeDto takmicenje, int id)
         {
             var takmicenjeIzBaze = uow.TakmicenjeRepository.GetTakmicenje(id);
             if (takmicenjeIzBaze == null)

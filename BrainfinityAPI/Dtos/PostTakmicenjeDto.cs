@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace BrainfinityAPI.Dtos
 {
-    public class UpdateTakmicenjeDto
+    public class PostTakmicenjeDto
     {
         [Required]
         public string Naziv { get; set; }
@@ -19,7 +20,6 @@ namespace BrainfinityAPI.Dtos
 
         public string Slika { get; set; }
 
-        [Required]
-        public int Status { get; set; }
+        public int StatusId { get; set; }
     }
 }

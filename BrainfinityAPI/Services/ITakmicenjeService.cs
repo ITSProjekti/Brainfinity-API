@@ -12,10 +12,10 @@ namespace BrainfinityAPI.Services
 
         IEnumerable<GetTakmicenjeDto> GetTakmicenjes();
 
-        bool PostTakmicenje(GetTakmicenjeDto takmicenje);
+        bool PostTakmicenje(PostTakmicenjeDto takmicenje);
 
         bool RemoveTakmicenje(int id);
 
-        bool PutUpdateTakmicenje(UpdateTakmicenjeDto takmicenje, int id);
+        bool PutUpdateTakmicenje(PostTakmicenjeDto takmicenje, int id);
     }
 }

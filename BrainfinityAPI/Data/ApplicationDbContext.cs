@@ -19,5 +19,7 @@ namespace BrainfinityAPI.Data
         public DbSet<GrupaZadataka> GrupaZadatakas { get; set; }
 
         public DbSet<Status> Statuses { get; set; }
+
+        public DbSet<NivoSkole> NivoSkoles { get; set; }
     }
 }

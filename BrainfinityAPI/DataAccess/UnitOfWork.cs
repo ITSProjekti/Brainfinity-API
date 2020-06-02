@@ -1,5 +1,6 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 using BrainfinityAPI.Data;
@@ -55,6 +56,20 @@ namespace BrainfinityAPI.DataAccess
                     _nivoSkole = new NivoSkoleRepository(_context);
                 }
                 return _nivoSkole;
+            }
+        }
+
+        private IRazredRepository _razred;
+
+        public IRazredRepository RazredRepository
+        {
+            get
+            {
+                if (_razred == null)
+                {
+                    _razred = new RazredRepository(_context);
+                }
+                return _razred;
             }
         }
 

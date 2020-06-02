@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -11,6 +11,7 @@ namespace BrainfinityAPI.DataAccess
         ITakmicenjeRepository TakmicenjeRepository { get; }
         IGrupaZadatakaRepository GrupaZadatakaRepository { get; }
         INivoSkoleRepository NivoSkoleRepository { get; }
+        IRazredRepository RazredRepository { get; }
 
         int Save();
     }

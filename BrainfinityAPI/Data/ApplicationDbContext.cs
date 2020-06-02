@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -21,5 +21,7 @@ namespace BrainfinityAPI.Data
         public DbSet<Status> Statuses { get; set; }
 
         public DbSet<NivoSkole> NivoSkoles { get; set; }
+
+        public DbSet<Razred> Razreds { get; set; }
     }
 }

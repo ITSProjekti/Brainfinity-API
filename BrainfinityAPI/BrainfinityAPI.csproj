@@ -6,10 +6,24 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Data\Migrations\20200524193837_DodajStatus.cs" />
+    <Compile Remove="Data\Migrations\20200524193837_DodajStatus.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200524194415_PopunjavanjeTabeleStatus.cs" />
+    <Compile Remove="Data\Migrations\20200524194415_PopunjavanjeTabeleStatus.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200524201442_SetovanjeDefaultStatusa.cs" />
+    <Compile Remove="Data\Migrations\20200524201442_SetovanjeDefaultStatusa.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200526191723_GrupaZadatakaRazredRelationship.cs" />
+    <Compile Remove="Data\Migrations\20200526191723_GrupaZadatakaRazredRelationship.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200602125451_DodajStatus.cs" />
+    <Compile Remove="Data\Migrations\20200602125451_DodajStatus.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Cors" Version="2.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="2.1.14" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.6" PrivateAssets="All" />
   </ItemGroup>
 

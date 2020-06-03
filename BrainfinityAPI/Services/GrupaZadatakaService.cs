@@ -87,5 +87,18 @@ namespace BrainfinityAPI.Services
 
             return true;
         }
+
+        public bool RemoveGrupaZadataka(int id)
+        {
+            if (_uow.GrupaZadatakaRepository.GetGrupaZadataka(id) == null)
+            {
+                return false;
+            }
+
+            _uow.GrupaZadatakaRepository.RemoveGrupaZadataka(id);
+            _uow.Save();
+
+            return true;
+        }
     }
 }

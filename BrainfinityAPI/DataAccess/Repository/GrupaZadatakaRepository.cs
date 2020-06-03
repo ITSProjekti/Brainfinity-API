@@ -35,5 +35,10 @@ namespace BrainfinityAPI.DataAccess.Repository
         {
             _context.GrupaZadatakas.Add(grupaZadataka);
         }
+
+        public void RemoveGrupaZadataka(int id)
+        {
+            _context.GrupaZadatakas.Remove(GetGrupaZadataka(id));
+        }
     }
 }

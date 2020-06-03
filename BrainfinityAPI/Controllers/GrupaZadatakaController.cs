@@ -64,5 +64,18 @@ namespace BrainfinityAPI.Controllers
                 return NotFound();
             }
         }
+
+        [HttpDelete("{id}")]
+        public IActionResult RemoveGrupaZadataka(int id)
+        {
+            if (_gzs.RemoveGrupaZadataka(id))
+            {
+                return NoContent();
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
     }
 }

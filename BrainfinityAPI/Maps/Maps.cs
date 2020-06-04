@@ -20,6 +20,10 @@ namespace BrainfinityAPI.Maps
             CreateMap<GrupaZadataka, GetGrupaZadatakaDto>();
             CreateMap<GetGrupaZadatakaDto, GrupaZadataka>();
             CreateMap<PostGrupaZadatakaDto, GrupaZadataka>();
+
+            CreateMap<Zadatak, GetZadatakDto>();
+            CreateMap<GetZadatakDto, Zadatak>();
+            CreateMap<PostZadatakDto, Zadatak>();
         }
     }
 }

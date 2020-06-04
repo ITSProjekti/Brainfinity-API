@@ -11,7 +11,10 @@ namespace BrainfinityAPI.Dtos
         public IEnumerable<GetGrupaZadatakaDto> SveGrupe { get; set; }
         public IEnumerable<Razred> Razredi { get; set; }
         public IEnumerable<NivoSkole> NivoiSkole { get; set; }
+
+        //public IEnumerable<Zadatak> Zadaci { get; set; }
         public string NazivTakmicenja { get; set; }
+
         public int TakmicenjeId { get; set; }
     }
 }

@@ -73,6 +73,20 @@ namespace BrainfinityAPI.DataAccess
             }
         }
 
+        private IZadatakRepository _zadatak;
+
+        public IZadatakRepository ZadatakRepository
+        {
+            get
+            {
+                if (_zadatak == null)
+                {
+                    _zadatak = new ZadatakRepository(_context);
+                }
+                return _zadatak;
+            }
+        }
+
         public int Save()
         {
             return _context.SaveChanges();

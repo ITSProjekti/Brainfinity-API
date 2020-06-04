@@ -12,6 +12,7 @@ namespace BrainfinityAPI.DataAccess
         IGrupaZadatakaRepository GrupaZadatakaRepository { get; }
         INivoSkoleRepository NivoSkoleRepository { get; }
         IRazredRepository RazredRepository { get; }
+        IZadatakRepository ZadatakRepository { get; }
 
         int Save();
     }

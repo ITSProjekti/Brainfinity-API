@@ -23,5 +23,7 @@ namespace BrainfinityAPI.Data
         public DbSet<NivoSkole> NivoSkoles { get; set; }
 
         public DbSet<Razred> Razreds { get; set; }
+
+        public DbSet<Zadatak> Zadataks { get; set; }
     }
 }

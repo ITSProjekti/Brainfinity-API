@@ -51,6 +51,7 @@ namespace BrainfinityAPI
 
             services.AddTransient<ITakmicenjeService, TakmicenjeService>();
             services.AddTransient<IGrupaZadatakaService, GrupaZadatakaService>();
+            services.AddTransient<IZadatakService, ZadatakService>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             services.AddCors();

@@ -60,5 +60,16 @@ namespace BrainfinityAPI.Controllers
 
             return NotFound();
         }
+
+        [HttpPut("{zadatakId}")]
+        public IActionResult EditZadatak(PostZadatakDto zadatak, int zadatakId)
+        {
+            if (_zs.EditZadatak(zadatak, zadatakId))
+            {
+                return NoContent();
+            }
+
+            return NotFound();
+        }
     }
 }

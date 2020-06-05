@@ -33,6 +33,22 @@ namespace BrainfinityAPI.Services
             return true;
         }
 
+        public bool EditZadatak(PostZadatakDto zadatak, int zadatakId)
+        {
+            var zadatakIzBaze = _uow.ZadatakRepository.GetZadatak(zadatakId);
+
+            if (zadatakIzBaze == null)
+            {
+                return false;
+            }
+
+            var zadatakZaIzmenu = _mapper.Map(zadatak, zadatakIzBaze);
+            _uow.ZadatakRepository.EditZadatak(zadatakZaIzmenu);
+            _uow.Save();
+
+            return true;
+        }
+
         public IEnumerable<GetZadatakDto> GetSviZadaci(int grupaId)
         {
             var zadaciIzBaze = _uow.ZadatakRepository.GetSviZadaci(grupaId);

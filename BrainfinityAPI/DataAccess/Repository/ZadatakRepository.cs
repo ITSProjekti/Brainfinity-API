@@ -19,6 +19,10 @@ namespace BrainfinityAPI.DataAccess.Repository
         public void DeleteZadatak(int zadatakId)
             => _context.Zadataks.Remove(GetZadatak(zadatakId));
 
+        public void EditZadatak(Zadatak zadatak)
+        {
+        }
+
         public IEnumerable<Zadatak> GetSviZadaci(int grupaId)
             => _context.Zadataks.Where(m => m.GrupaZadatakaId == grupaId).ToList();
 

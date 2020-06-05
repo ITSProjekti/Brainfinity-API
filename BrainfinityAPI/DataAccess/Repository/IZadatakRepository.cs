@@ -15,5 +15,7 @@ namespace BrainfinityAPI.DataAccess.Repository
         void PostZadatak(Zadatak zadatak);
 
         void DeleteZadatak(int zadatakId);
+
+        void EditZadatak(Zadatak zadatak);
     }
 }

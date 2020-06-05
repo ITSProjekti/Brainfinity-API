@@ -23,6 +23,10 @@ namespace BrainfinityAPI.Controllers
         [HttpGet("{grupaId}")]
         public IActionResult GetSviZadaci(int grupaId)
         {
+            if (_zs.GetSviZadaci(grupaId) == null)
+            {
+                return NotFound();
+            }
             return Ok(_zs.GetSviZadaci(grupaId));
         }
 
@@ -44,6 +48,17 @@ namespace BrainfinityAPI.Controllers
                 return NoContent();
 
             return BadRequest();
+        }
+
+        [HttpDelete("{zadatakId}")]
+        public IActionResult DeleteZadatak(int zadatakId)
+        {
+            if (_zs.DeleteZadatak(zadatakId))
+            {
+                return NoContent();
+            }
+
+            return NotFound();
         }
     }
 }

@@ -20,6 +20,19 @@ namespace BrainfinityAPI.Services
             _mapper = mapper;
         }
 
+        public bool DeleteZadatak(int zadatakId)
+        {
+            if (_uow.ZadatakRepository.GetZadatak(zadatakId) == null)
+            {
+                return false;
+            }
+
+            _uow.ZadatakRepository.DeleteZadatak(zadatakId);
+            _uow.Save();
+
+            return true;
+        }
+
         public IEnumerable<GetZadatakDto> GetSviZadaci(int grupaId)
         {
             var zadaciIzBaze = _uow.ZadatakRepository.GetSviZadaci(grupaId);

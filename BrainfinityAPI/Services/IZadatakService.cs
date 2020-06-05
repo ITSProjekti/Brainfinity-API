@@ -14,5 +14,7 @@ namespace BrainfinityAPI.Services
         GetZadatakDto GetZadatak(int zadatakId);
 
         bool PostZadatak(PostZadatakDto zadatak);
+
+        bool DeleteZadatak(int zadatakId);
     }
 }

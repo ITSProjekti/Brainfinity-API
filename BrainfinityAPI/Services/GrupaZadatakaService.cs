@@ -40,7 +40,7 @@ namespace BrainfinityAPI.Services
                 Razredi = PreostaliRazredi(sveGrupe, razredi),
                 NivoiSkole = _uow.NivoSkoleRepository.GetAllNivoSkole(),
                 NazivTakmicenja = _uow.TakmicenjeRepository.GetTakmicenje(takmicenjeId).Naziv,
-                TakmicenjeId = takmicenjeId,
+                TakmicenjeId = takmicenjeId
             };
 
             return liste;

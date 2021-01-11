@@ -4,11 +4,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using BrainfinityAPI.Dtos;
 using BrainfinityAPI.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BrainfinityAPI.Controllers
 {
+    [Authorize(Roles = "Supervizor, Pregledac")]
     [Route("api/[controller]")]
     [ApiController]
     public class ZadatakController : ControllerBase
@@ -23,11 +25,12 @@ namespace BrainfinityAPI.Controllers
         [HttpGet("{grupaId}")]
         public IActionResult GetSviZadaci(int grupaId)
         {
-            if (_zs.GetSviZadaci(grupaId) == null)
+            var zadaci = _zs.GetSviZadaci(grupaId);
+            if (zadaci.Count() == 0)
             {
                 return NotFound();
             }
-            return Ok(_zs.GetSviZadaci(grupaId));
+            return Ok(zadaci);
         }
 
         [HttpGet("Id/{zadatakId}")]
@@ -42,7 +45,7 @@ namespace BrainfinityAPI.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateZadatak([FromBody]PostZadatakDto zadatak)
+        public IActionResult CreateZadatak([FromBody] PostZadatakDto zadatak)
         {
             if (_zs.PostZadatak(zadatak))
                 return NoContent();

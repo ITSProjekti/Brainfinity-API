@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using BrainfinityAPI.Services;
 using BrainfinityAPI.Dtos;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BrainfinityAPI.Controllers
 {
+    [Authorize(Roles = "Supervizor")]
     [Route("api/[controller]")]
     [ApiController]
     public class GrupaZadatakaController : ControllerBase
@@ -40,7 +42,7 @@ namespace BrainfinityAPI.Controllers
         }
 
         [HttpPost]
-        public IActionResult NovaGrupaZadataka([FromBody]PostGrupaZadatakaDto grupaZadataka)
+        public IActionResult NovaGrupaZadataka([FromBody] PostGrupaZadatakaDto grupaZadataka)
         {
             if (_gzs.NovaGrupaZadataka(grupaZadataka))
             {
@@ -53,7 +55,7 @@ namespace BrainfinityAPI.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult EditGrupaZadataka([FromBody]PostGrupaZadatakaDto grupaZadataka, int id)
+        public IActionResult EditGrupaZadataka([FromBody] PostGrupaZadatakaDto grupaZadataka, int id)
         {
             if (_gzs.EditGrupaZadataka(grupaZadataka, id))
             {

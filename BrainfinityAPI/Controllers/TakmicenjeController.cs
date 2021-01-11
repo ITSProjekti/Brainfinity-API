@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using BrainfinityAPI.Services;
 using BrainfinityAPI.Dtos;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BrainfinityAPI.Controllers
 {
+    [Authorize(Roles = "Supervizor")]
     [Route("api/[controller]")]
     [ApiController]
     public class TakmicenjeController : ControllerBase
@@ -32,6 +34,7 @@ namespace BrainfinityAPI.Controllers
             return Ok(takmicenje);
         }
 
+        [Authorize]
         [HttpGet]
         public ObjectResult GetAll()
         {
@@ -39,7 +42,7 @@ namespace BrainfinityAPI.Controllers
         }
 
         [HttpPost]
-        public ObjectResult Post([FromBody]PostTakmicenjeDto takmicenje)
+        public ObjectResult Post([FromBody] PostTakmicenjeDto takmicenje)
         {
             if (ts.PostTakmicenje(takmicenje))
             {
@@ -66,7 +69,7 @@ namespace BrainfinityAPI.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult PutUpdateTakmicenje([FromBody]PostTakmicenjeDto takmicenje, int id)
+        public IActionResult PutUpdateTakmicenje([FromBody] PostTakmicenjeDto takmicenje, int id)
         {
             if (ts.PutUpdateTakmicenje(takmicenje, id))
             {

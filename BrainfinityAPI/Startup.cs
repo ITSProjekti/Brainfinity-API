@@ -16,6 +16,11 @@ using BrainfinityAPI.DataAccess;
 using BrainfinityAPI.DataAccess.Repository;
 using BrainfinityAPI.Services;
 using AutoMapper;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using BrainfinityAPI.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace BrainfinityAPI
 {
@@ -44,16 +49,37 @@ namespace BrainfinityAPI
                     .UseSqlServer(
                         Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddDefaultIdentity<IdentityUser>()
+            services.AddIdentity<Korisnik, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.Configure<IdentityOptions>(options =>
+            {
+                options.Password.RequireNonAlphanumeric = false;
+            });
 
             services.AddAutoMapper(typeof(Startup));
 
+            //services.AddScoped<IUserStore<Korisnik>, UserStore<Korisnik>>();
             services.AddTransient<ITakmicenjeService, TakmicenjeService>();
             services.AddTransient<IGrupaZadatakaService, GrupaZadatakaService>();
             services.AddTransient<IZadatakService, ZadatakService>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
+            services.AddAuthentication(cfg =>
+            {
+                cfg.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                cfg.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+                .AddJwtBearer(option =>
+                    option.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateIssuer = true,
+                        ValidateAudience = true,
+                        ValidateLifetime = true,
+                        ValidateIssuerSigningKey = true,
+                        ValidIssuer = Configuration["Jwt:Issuer"],
+                        ValidAudience = Configuration["Jwt:Issuer"],
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]))
+                    });
             services.AddCors();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }

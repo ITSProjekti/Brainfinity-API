@@ -25,5 +25,7 @@ namespace BrainfinityAPI.Data
         public DbSet<Razred> Razreds { get; set; }
 
         public DbSet<Zadatak> Zadataks { get; set; }
+
+        public DbSet<Korisnik> Korisniks { get; set; }
     }
 }

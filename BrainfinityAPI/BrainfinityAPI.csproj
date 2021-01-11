@@ -16,6 +16,8 @@
     <Compile Remove="Data\Migrations\20200526191723_GrupaZadatakaRazredRelationship.Designer.cs" />
     <Compile Remove="Data\Migrations\20200602125451_DodajStatus.cs" />
     <Compile Remove="Data\Migrations\20200602125451_DodajStatus.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200616204241_DodajTabeluKorisnik.cs" />
+    <Compile Remove="Data\Migrations\20200616204241_DodajTabeluKorisnik.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

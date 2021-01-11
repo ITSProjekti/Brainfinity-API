@@ -24,6 +24,8 @@ namespace BrainfinityAPI.Maps
             CreateMap<Zadatak, GetZadatakDto>();
             CreateMap<GetZadatakDto, Zadatak>();
             CreateMap<PostZadatakDto, Zadatak>();
+
+            CreateMap<PostKorisnikDto, Korisnik>();
         }
     }
 }
